@@ -1,10 +1,5 @@
-﻿using MediaManager;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System;
+using Tizen.TV.UIControls.Forms;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,7 +11,11 @@ namespace ShowCaseTizen.Views
         public VideoSeleccionado(Video video)
         {
             InitializeComponent();
-            UrlVideo.Source = video.Videofile;
+            var page = new OverlayPage();
+            var player = new MediaPlayer();
+            player.VideoOutput = page;
+            player.Source = video.Videofile;
+            player.Start();
         }
 
         private async void Button_Clicked(object sender, EventArgs e)

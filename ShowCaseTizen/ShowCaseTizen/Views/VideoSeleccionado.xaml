@@ -5,13 +5,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="ShowCaseTizen.Views.VideoSeleccionado"
+             xmlns:tvcontrols="clr-namespace:Tizen.TV.UIControls.Forms;assembly=Tizen.TV.UIControls.Forms"
              >
-
-    <FlexLayout
-        VerticalOptions="CenterAndExpand"
-        HorizontalOptions="FillAndExpand"
-        >
-        <Button  Text="Regresar" Clicked="Button_Clicked"/>
-        <WebView  x:Name="UrlVideo" Visual="Default" AnchorX="1000" AnchorY="1000" HeightRequest="1000" WidthRequest="1000" />
-    </FlexLayout>
+    <AbsoluteLayout>
+        <tvcontrols:OverlayMediaView x:Name="VideoView"  AbsoluteLayout.LayoutBounds="100, 100, 500, 300">
+            <tvcontrols:MediaPlayer Source="{Binding Source}" AutoPlay="true" />
+        </tvcontrols:OverlayMediaView>
+    </AbsoluteLayout>
+    
 </ContentPage>
